@@ -6,7 +6,20 @@ class Point {
         this.x = x;
         this.y = y;
     }
-    // 计算到另一点的距离（欧几里得距离）
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Point point = (Point) o;
+        return x == point.x && y == point.y;
+    }
+
+    @Override
+    public int hashCode() {
+        return 31 * x + y;
+    }
+
     public double distance(Point other) {
         int dx = this.x - other.x;
         int dy = this.y - other.y;
